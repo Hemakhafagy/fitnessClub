@@ -1,0 +1,61 @@
+
+div.welcomediv
+{
+    font-size: 20px;
+    text-shadow: 3px 4px black;
+    background-color: #515051;
+    background-position: center;
+    color:white; 
+     text-align: center;
+    text-transform: uppercase;
+    word-spacing: 6px;
+    letter-spacing: -2px;
+    box-shadow: 20px 20px 20px black ;
+    border-radius:50px;
+    border-style:inset; 
+    border-width: 2px 1px 2px 1px ;
+    border-color: #0061F4;
+}
+img
+{
+    width :1300px ;
+    height: 300px ;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center ;
+    box-shadow: 3px 4px 5px #939ABF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px double #939ABF ;
+}
+img:hover
+{
+   border-radius: 30px ;
+   box-shadow: 3px 1px 3px 1px ;
+}
+form
+{
+    color: white ;
+    text-align: center ;
+    text-transform: capitalize;
+   
+    background-color: #302D30 ;
+    background-size: 300px;
+    box-shadow: 30px 20px 50px #1B1B23;
+    border-radius: 30px;
+}
+div.container
+{
+   font-size: 20px;
+   font-style:oblique;
+    text-shadow: 60px 100px 100px black ;
+}
+
+body
+{
+    background-size: 5000px;
+    background-image: url(" ///F:/fitness/photos/back.jpg");
+    background-repeat: no-repeat;
+}
+
