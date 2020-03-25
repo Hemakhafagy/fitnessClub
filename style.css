@@ -39,7 +39,8 @@ form
     color: white ;
     text-align: center ;
     text-transform: capitalize;
-   
+    padding: 10px ;
+    margin: 10px ;
     background-color: #302D30 ;
     background-size: 300px;
     box-shadow: 30px 20px 50px #1B1B23;
