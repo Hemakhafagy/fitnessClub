@@ -1,3 +1,9 @@
+<?php session_start();
+  if(isset($_SESSION['userName'])){
+    header("Location: menuBar.html");
+    exit;
+  }
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +41,21 @@
 
 </form>
 
-</video>
+
+<<<<<<< HEAD:login.html
+
+=======
+<?php
+if (isset($_POST['email']) && isset($_POST['pwd'])){
+  if((strcmp($_POST['email'], 'absallh43@gmail.com') == 0) &&
+  (strcmp($_POST['pwd'], '123') == 0)){
+    $_SESSION['userName'] = $_POST['email'];
+    header("Location: menuBar.html");
+    exit;
+  }else{
+    echo "<script> alert('wrong Email or Password'); </script>";
+  }
+}
+?>
 </body>
 </html>
