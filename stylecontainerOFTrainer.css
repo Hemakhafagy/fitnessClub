@@ -1,7 +1,23 @@
 body {
-    background-color:#404442;
     perspective: 600px;
-   
+   background-color:#00A5FF;
+animation: color 20s ease-in-out 2s infinite alternate ;
+}
+
+@keyframes color { /* animation */
+  
+  0% ,50% , 75% ,100%{
+    background-color:#00A5FF;
+  }
+  
+  30% , 80%{
+    background-color:#001B3A;
+  }
+  
+ 70% {
+     background-color:#0F0E0E;
+  }
+  
 }
 .container
 {
