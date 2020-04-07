@@ -3,7 +3,7 @@
   if(isset($_SESSION['permission'])){//check if there is session or not
     switch ($_SESSION['permission']) {
       case 1:
-        header("Location: Admin_Home_Page.php");//redirect to admin home page
+        header("Location: admin/Admin_Home_Page.php");//redirect to admin home page
         exit();
         break;
       case 2:
@@ -23,7 +23,7 @@
 <head>
 <title>Gym Page</title>
 </head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="loginstyle.css">
 <body>
 <div class = "welcomediv">
 
@@ -68,11 +68,11 @@
         $_SESSION['permission'] = $result["permission"];//assign permission to the session
         $_SESSION['name'] = $result["name"];//assign name to the session
         $_SESSION['userName'] = $_POST["email"];//assign userName to the session
-        
+
         //check for his permission and redirect to the next page
         switch ($_SESSION['permission']) {
           case 1:
-            header("Location: Admin_Home_Page.php");//redirect to admin home page
+            header("Location: admin/Admin_Home_Page.php");//redirect to admin home page
             exit();
             break;
           case 2:

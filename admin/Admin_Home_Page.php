@@ -1,6 +1,6 @@
 <?php
   include "adminConfig.php";
-  include "config.php";//connect to DB
+  include "../config.php";//connect to DB
 
   $sql = "SELECT image FROM person WHERE username = '" . $_SESSION['userName'] . "';";//query for the image of the user
   $stmt = $conn->query($sql);//execute the query

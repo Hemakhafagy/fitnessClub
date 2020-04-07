@@ -7,63 +7,63 @@
 </head>
 <body>
     <div class="header">
-        <img src=" ///F:/fitness%20-%20Copy/photos/PERSON.png" alt="trainerPhoto"> 
+        <img src="../photos/PERSON.png" alt="trainerPhoto">
             <h1>
             #TRAINER NAME
             </h1>
     </div>
 
-        
+
  <fieldset>
   <legend> Informations </legend>
  <form class ="trainerForm" id =trainer>
-                    <input type = "text"  value="#TRAINER ID" required    name=  "trainerid"  placeholder = "Your ID" value =@TrainerID> 
-                    <input type = "text"  value="#TRAINER NAME" required      name=  "trainername"  placeholder = "Your Name">      
+                    <input type = "text"  value="#TRAINER ID" required    name=  "trainerid"  placeholder = "Your ID" value =@TrainerID>
+                    <input type = "text"  value="#TRAINER NAME" required      name=  "trainername"  placeholder = "Your Name">
                     <input type = "text" value="#TRAINER USERNAME"   required          name=  "traineremail" placeholder = "Your Username">
                     <input type = "password"  value = "#Trainer password"  required   name=  "trainerpassword" placeholder = "Your password">
-                    <input type = "text"  value = "#Member Phone"    name=  "trainerphone" placeholder = "Your Phone">        
-                    
+                    <input type = "text"  value = "#Member Phone"    name=  "trainerphone" placeholder = "Your Phone">
+
   </form>
-  
+
   </fieldset>
- 
+
  <fieldset>
         <legend> Shifting time </legend>
             <form class ="trainerForm" id = trainer>
 
                     <label  for = "start time"> START TIME :</label>
-                    <input class = "shift" type ="time" value =10:00 Am name = "start time"> <!--value should bring it from db by #php -->  
+                    <input class = "shift" type ="time" value =10:00 Am name = "start time"> <!--value should bring it from db by #php -->
                     <label  for = "End time"> END TIME :</label>
-                    <input class = "shift" type ="time" value =12:00 Am name = "end time"> <!--value should bring it from db by #php -->     
-                    
-                    
-                    
+                    <input class = "shift" type ="time" value =12:00 Am name = "end time"> <!--value should bring it from db by #php -->
+
+
+
                     <!--حاسب الليست اععععععععععععععععععععععععع-->
-                    
+
                     <label for="cars">Choose shifts:</label>
                   <!-- in fact I cant make this list please help me :(-->
                     <select >
                          <option value="0">#shift number :</option> X
                     </select>
-                  
-                  
-                  
-                  
-             </form>       
+
+
+
+
+             </form>
     </fieldset>
-    
+
     <div class="container">
                         <!-- dont forget form action-->
                             <div>
-                                <input type="submit" name="modify" value="Modify" form="trainer"> 
-                                
+                                <input type="submit" name="modify" value="Modify" form="trainer">
+
                             </div>
-                            
-            
+
+
                             <div>
                                  <input type="submit" name="Delete" value="Delete" form="trainer">
                             </div>
-                            
+
                             <div>
                                  <input type="reset" name="reset" value="Reset" form="trainer">
                             </div>
