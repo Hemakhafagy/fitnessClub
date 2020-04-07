@@ -4,6 +4,11 @@
  <meta charset="UTF-8">
 
 <style>
+ * {
+    -webkit-box-sizing:border-box ;
+    -o-box-sizing:border-box ;
+    box-sizing:border-box ;
+}
   body
 {
 background-color:#00A5FF;
@@ -34,7 +39,7 @@ animation: color 20s ease-in-out 0s infinite alternate ;
 {
   position:relative;
   background-color :black;
-  width:95%;
+  width:100%;
   padding :20px ;
   text-align :center ;
   border:2px solid #918B8B ;
@@ -42,8 +47,6 @@ animation: color 20s ease-in-out 0s infinite alternate ;
   color:white;
   text-shadow: 13px 5px 4px #232020;
   font-family:Arial , tahoma;
-  margin:50px auto;
- box-shadow:10px 10px 5px #676767,10px 10px 5px #33322D,10px 10px 5px #161515;
   
 }
 .headerDiv > img
@@ -56,14 +59,13 @@ animation: color 20s ease-in-out 0s infinite alternate ;
 }
 .buttonDiv
 {
- width:94%;
+ width:100%;
  background-color:black;
- margin:10px;
  padding:30px ;
   border:2px solid #918B8B ;
   position:relative;
 }
-button
+.buttonDiv button
 {
  background-color:#241027;
  color:white;
@@ -113,6 +115,7 @@ a
 {
  text-decoration:none;
 }
+
 </style>
 
 </head>
@@ -123,6 +126,8 @@ a
     <img src = "///F:/img_avatar.png" alt="adminphoto">
     <h3> #Admin Name<h3>
   </div>
+  
+
                                              <!-- تم وضع اللينك بنجاح-->
  <div class = "buttonDiv">
     <a href = "///F:/fitness%20-%20Copy/member_management.html"> <!-- لا تنسى حط لينك member-->

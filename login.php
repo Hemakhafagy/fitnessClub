@@ -9,7 +9,7 @@
 <head>
 <title>Gym Page</title>
 </head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="loginstyle.css">
 <body>
 <div class = "welcomediv">
 
