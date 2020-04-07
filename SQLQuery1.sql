@@ -3,7 +3,8 @@ create table person (
 	username varchar(50) not null primary key,
 	password varchar(47) not null unique,
 	permission bit ,
-	phoneNumber varchar(11) unique
+	phoneNumber varchar(11) unique,
+	image VARCHAR(1000) DEFAULT 'PERSON.png'
 );
 
 create table shiftWork (

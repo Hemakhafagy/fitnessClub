@@ -1,3 +1,21 @@
+<?php
+  include "adminConfig.php";
+  include "config.php";//connect to DB
+
+  $sql = "SELECT image FROM person WHERE username = '" . $_SESSION['userName'] . "';";//query for the image of the user
+  $stmt = $conn->query($sql);//execute the query
+  if ($stmt->num_rows == 1) {//if there is only one user of that data
+    //output the data
+    if($result = $stmt->fetch_assoc()) {//$result["image"] is the result of the query
+        $imageName = $result["image"];
+    }else{
+      echo "<script> alert('error with the database you won't see your iamge'); </script>";//generate error in password or userName error
+    }
+  }
+  $stmt->close();//close the statement
+  mysqli_close($conn);//close the connection to the db
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,19 +36,19 @@ animation: color 20s ease-in-out 0s infinite alternate ;
 }
 
 @keyframes color {
-  
+
   0% ,50% , 75% ,100%{
     background-color:#00A5FF;
   }
-  
+
   30% , 80%{
     background-color:#001B3A;
   }
-  
+
  70% {
      background-color:#0F0E0E;
   }
-  
+
 }
 
 
@@ -47,7 +65,7 @@ animation: color 20s ease-in-out 0s infinite alternate ;
   color:white;
   text-shadow: 13px 5px 4px #232020;
   font-family:Arial , tahoma;
-  
+
 }
 .headerDiv > img
 {
@@ -82,14 +100,14 @@ animation: color 20s ease-in-out 0s infinite alternate ;
  text-shadow:5px 2px 3px black;
  transition:.5s ease-in-out ;
  box-shadow:10px 10px 5px #292C29 ;
- 
+
 }
 .Memberbutton
 {
  position:absolute ;
  top:30px ;
  left:500px ;
- 
+
 }
 .Trainerbutton
 {
@@ -121,26 +139,26 @@ a
 </head>
 
 <body>
- 
+
   <div class = " headerDiv">
-    <img src = "///F:/img_avatar.png" alt="adminphoto">
-    <h3> #Admin Name<h3>
+    <img src = "<?php if(isset($imageName)){echo constant('personeImage'). $imageName;} ?>" alt="adminphoto">
+    <h3><?php echo ucwords($_SESSION['name']);?><h3>
   </div>
-  
+
 
                                              <!-- تم وضع اللينك بنجاح-->
  <div class = "buttonDiv">
-    <a href = "///F:/fitness%20-%20Copy/member_management.html"> <!-- لا تنسى حط لينك member-->
+    <a href = "member_management.html"> <!-- لا تنسى حط لينك member-->
    <button type="submit" class="Memberbutton" )>Members</button>
     </a>
-      <a href = " ///F:/fitness%20-%20Copy/Trainer_management.html"><!-- لا تنسى حط لينك trainer-->
+      <a href = "Trainer_management.html"><!-- لا تنسى حط لينك trainer-->
    <button type = "button" class = "Trainerbutton" >  Trainers </button>
      </a>
-      <a href = "///F:/fitness%20-%20Copy/Package_Management.html"><!-- لا تنسى حط لينك package-->
+      <a href = "Package_Management.html"><!-- لا تنسى حط لينك package-->
     <button type = "button" class = "Packagebutton" >  Package Management </button>
        </a>
    </div>
-  
+
 </body>
 
 </html>
