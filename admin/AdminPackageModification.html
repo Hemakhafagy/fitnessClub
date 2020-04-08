@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Admin@#packageName</title> <!-- @ يجب وضع اسم العميل بعد  -->
+<meta charset = "utf-8">
+<link href="styleOfAdminpackagepage.css" rel="stylesheet" type="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <div class="header">
+            <h1>
+            #package NAME
+            </h1>
+    </div>
+    
+    <fieldset>
+        <legend> Informations </legend>
+            <form class ="memberForm" id =member>
+                    <input type = "text"  value="#package NAME" required      name=  "packagename"  placeholder = "Package Name">        <!-- adimn can`t modification-->
+                    <input type = "text"  value = "#Package Cost"    name=  "packagecost" placeholder = "Package Cost">        <!-- adimn can`t modification-->
+                    <input type = "text"  value = "#Package Discount"    name=  "packagediscount" placeholder = "Discount ">        <!-- adimn can`t modification-->
+
+                   
+    <multi-input class="list">
+      <input list="speakers" placeholder="select shift num" >
+      <datalist id="speakers">
+        <option value="0" ></option>
+        <option value="1" ></option>
+        <option value="2" ></option>
+        <option value="3" ></option>
+        <option value="4" ></option> <!-- list the shifts you need-->
+        <option value="5" ></option>
+        <option value="6" ></option>
+        <option value="7" ></option>
+
+
+      </datalist>
+    </multi-input>
+
+                  
+            </form>
+    </fieldset>
+
+
+
+
+
+                    <div class="container">
+                        <!-- dont forget form action-->
+                            <div>
+                                <input type="submit" name="modify" value="Modify" form="member">
+
+                            </div>
+
+
+                            <div>
+                                 <input type="submit" name="Delete" value="Delete" form="member">
+                            </div>
+
+                            <div>
+                                 <input type="reset" name="reset" value="Reset" form="member">
+                            </div>
+                    </div>
+  
+</body>
+  <script src="multi-input.js"></script>
+</html>
