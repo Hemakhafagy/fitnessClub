@@ -11,6 +11,8 @@
         break;
       case 3:
         echo "<script> alert('You have member permission'); </script>";
+        header("Location: member/member_Home_page.php");//redirect to member home page
+        exit();
         break;
       default:
         echo "<script> alert('You have no permission please call the admin'); </script>";
@@ -29,7 +31,7 @@
 
   <h1 >m3lsh fitness club </h1>
   <h3>welcome dear customers <h3>
-  <div class = "sign"> <a href = "formregisteration.html"> Sign Up </a></div>
+  <div class = "sign"> <a href = "formregisteration.php"> Sign Up </a></div>
 </div>
 
 </br>
@@ -68,6 +70,7 @@
         $_SESSION['permission'] = $result["permission"];//assign permission to the session
         $_SESSION['name'] = $result["name"];//assign name to the session
         $_SESSION['userName'] = $_POST["email"];//assign userName to the session
+        $_SESSION['last_login_timestamp'] = time();//store the login time
 
         //check for his permission and redirect to the next page
         switch ($_SESSION['permission']) {
@@ -80,6 +83,8 @@
             break;
           case 3:
             echo "<script> alert('You have member permission'); </script>";
+            header("Location: member/member_Home_page.php");//redirect to member home page
+            exit();
             break;
           default:
             echo "<script> alert('You have no permission please call the admin'); </script>";

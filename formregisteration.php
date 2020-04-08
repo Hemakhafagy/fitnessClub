@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if(isset($_SESSION['permission'])){
+		header("Location: member/member_Home_page.php");//redirect to login page
+    exit();
+	}
+ ?>
+
 <!DOCTYPE html>
 	<!-- برجاء العلم ان هذه صفحة bootstrap وانا مليش دعوة بالكود -->
 <html lang="en">
@@ -91,7 +99,7 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action='<?php echo $_SERVER["PHP_SELF"];?>' method="post">
 		<h2> Admin Sign Up</h2> <!-- لعبت هنا  -->
 		<p>Hello There, I Am 505a Robot.</p> <!-- لعبت هنا  -->
 		<hr>
@@ -105,18 +113,76 @@
         	<input type="tel" class="form-control" name="phone" placeholder="Phone" maxlength="11">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <input type="password" class="form-control" id = "password" name="password" placeholder="Password" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+            <input type="password" class="form-control" id = "confirm_password" name="confirm_password" placeholder="Confirm Password" required="required">
         </div>
 		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg" name="submit" onclick="validatePassword();">Sign Up</button>
         </div>
 		<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p> <!--تقريبا المفروض فى حاجه تتحط هنا ههه-->
     </form>
-	<div class="text-center">Already have an account? <a href="login.html">Login here</a></div> <!-- وديه على صفحة البتاع معلش --><!-- لعبت هنا  -->
+	<div class="text-center">Already have an account? <a href="login.php">Login here</a></div> <!-- وديه على صفحة البتاع معلش --><!-- لعبت هنا  -->
 
 </div>
+
+<script>
+var password = document.getElementById("password"),
+  confirm_password = document.getElementById("confirm_password");
+
+function validatePassword() {
+  if (password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity("");
+  }
+}
+</script>
+<?php
+	if(isset($_POST["submit"])){
+		include "config.php";//config file connect to DB
+		$userName = $_POST["email"];
+		$phone = $_POST["phone"];
+		$sql = "SELECT name FROM person WHERE username = '$userName' OR phoneNumber = '$phone';";//the query string
+		$stmt = $conn->query($sql);//execute the query
+		if ($stmt->num_rows >= 1) {//if there is a user of that data
+			//output the data
+      while ($result = $stmt->fetch_assoc()) {//$result["permission"] is the result of the query
+				if($userName === $result["username"]){
+					echo "<script> alert('that email is already exist'); </script>";
+				}
+				if($phone === $result["phoneNumber"]){
+					echo "<script> alert('that phone number is already exist'); </script>";
+				}
+			}
+			$stmt->close();//close the statement
+			mysqli_close($conn);//close the connection to the db
+			exit();
+		}
+
+		$name = $_POST["name"];
+		$userName = $_POST["email"];
+		$password = sha1($_POST["password"]);//the password is encrypted
+		$phone = $_POST["phone"];
+
+		$sql = "INSERT INTO person (name, username, password, permission, phoneNumber)
+						VALUES ('$name', '$userName', '$password', 3, '$phone');";
+		if ($conn->query($sql) === TRUE) {
+			$_SESSION['permission'] = 3;//assign permission to the session
+			$_SESSION['name'] = $name;//assign name to the session
+			$_SESSION['userName'] = $userName;//assign userName to the session
+			$_SESSION['last_login_timestamp'] = time();//store the login time
+
+			$stmt->close();
+			mysqli_close($conn);//close the connection to the db
+			echo '<script type="text/javascript">location.href = "member/member_Home_page.php";</script>';
+	    exit();
+		} else {
+		    echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+	}
+?>
+
 </body>
 </html>
